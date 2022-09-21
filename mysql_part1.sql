@@ -1,5 +1,5 @@
-CREATE DATABASE qa_restaurant; # creates the database
-USE qa_restaurant; # identifies which table you are going to use
+CREATE DATABASE qa_basics; # creates the database
+USE qa_basics; # identifies which table you are going to use
 
 CREATE TABLE customers(
 cust_id INT UNIQUE NOT NULL AUTO_INCREMENT,
@@ -21,4 +21,4 @@ ALTER TABLE customers MODIFY cust_name VARCHAR(80);
 SHOW TABLES;
 DESCRIBE customers; #provides a breakdown of the specific table, its columns, data types and constraints
 
-#DROP DATABASE qa_restaurant
+#DROP DATABASE qa_basics
