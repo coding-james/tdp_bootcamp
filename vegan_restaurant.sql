@@ -96,3 +96,32 @@ FOREIGN KEY(order_id) REFERENCES orders(order_id),
 FOREIGN KEY(menu_item_id) REFERENCES menu_items(menu_item_id));
 
 DESCRIBE orders_items;
+
+ALTER TABLE orders ADD order_date DATETIME NOT NULL; #Add in date and time
+DESCRIBE orders;
+
+#Create Orders and Order Items
+INSERT INTO orders(cust_id,order_date) VALUES(1,"2022-09-21 15:15"),(3,"2022-09-21 15:30"),(5,"2022-09-21 15:35"),(2,"2022-09-21 16:00"),(6,"2022-09-21 16:15");
+SELECT * FROM orders; #show orders
+
+INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(1,1,2),(1,4,1),(2,2,1),(3,1,1),(3,6,2),(4,5,2),(5,6,1),(5,1,3),(5,4,1);
+SELECT * FROM orders_items; #show orders items
+
+#Add Totals to orders
+UPDATE orders SET total_price=19 WHERE order_id=1;
+UPDATE orders SET total_price=7.5 WHERE order_id=2;
+UPDATE orders SET total_price=27 WHERE order_id=3;
+UPDATE orders SET total_price=7 WHERE order_id=4;
+UPDATE orders SET total_price=36.5 WHERE order_id=5;
+SELECT * FROM orders; #show orders
+
+#Delete an order and its items
+DELETE FROM orders_items WHERE oi_id=6;
+DELETE FROM orders WHERE order_id=4; #Have to delete order_items first
+
+#Add in a new order
+INSERT INTO orders(cust_id, order_date) VALUES(2,"2022-09-21 16:20");
+INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(6,1,2);
+UPDATE orders SET total_price=16 WHERE order_id=6;
+SELECT * FROM orders; #show orders
+SELECT * FROM orders_items; #show orders
