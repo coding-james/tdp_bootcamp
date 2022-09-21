@@ -58,13 +58,13 @@ INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availab
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Toast Sandwhich","Slice of toast between two slices of bread, seasoned with salt and pepper","gluten",3.5,450,False);
 
 #Modify Records
-UPDATE customers SET cust_name="Charles", email="king@royalfamily.uk", delivery_info="" WHERE cust_id=1;
-UPDATE customers SET cust_name="Liz" WHERE cust_id=2;
-UPDATE menu_items SET item_name="Hot Chilli", item_desc="Spicy plant-based chilli served with Sweet Potato and Sour Cream" Where menu_item_id=2;
+UPDATE customers SET cust_name="Charles", email="king@royalfamily.uk", delivery_info="" WHERE cust_id=1; #Change Elizabth to Charles
+UPDATE customers SET cust_name="Liz" WHERE cust_id=2; #Change Boris to Liz
+UPDATE menu_items SET item_name="Hot Chilli", item_desc="Spicy plant-based chilli served with Sweet Potato and Sour Cream" Where menu_item_id=2; #Update Chili name and description
 
 #Delete Records
-DELETE FROM customers WHERE cust_id=4;
-DELETE FROM menu_items WHERE menu_item_id=3;
+DELETE FROM customers WHERE cust_id=4; #Remove Nelson
+DELETE FROM menu_items WHERE menu_item_id=3; #Remove Vegan Lobster
 
 #Add additional records
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Not Mushroom for this Burger","Mushroom Burger with triple cooked chips","Gluten",9.5,632,True);
@@ -95,10 +95,10 @@ PRIMARY KEY(oi_id),
 FOREIGN KEY(order_id) REFERENCES orders(order_id),
 FOREIGN KEY(menu_item_id) REFERENCES menu_items(menu_item_id));
 
-DESCRIBE orders_items;
+DESCRIBE orders_items; #View table columns, data types and constraints
 
-ALTER TABLE orders ADD order_date DATETIME NOT NULL; #Add in date and time
-DESCRIBE orders;
+ALTER TABLE orders ADD order_date DATETIME NOT NULL; #Add in date and time, format "YYYY-MM-DD HH:MM:SS"
+DESCRIBE orders; #View table columns, data types and constraints
 
 #Create Orders and Order Items
 INSERT INTO orders(cust_id,order_date) VALUES(1,"2022-09-21 15:15"),(3,"2022-09-21 15:30"),(5,"2022-09-21 15:35"),(2,"2022-09-21 16:00"),(6,"2022-09-21 16:15");
@@ -116,12 +116,12 @@ UPDATE orders SET total_price=36.5 WHERE order_id=5;
 SELECT * FROM orders; #show orders
 
 #Delete an order and its items
-DELETE FROM orders_items WHERE oi_id=6;
-DELETE FROM orders WHERE order_id=4; #Have to delete order_items first
+DELETE FROM orders_items WHERE oi_id=6; #Delete Liz's order_items
+DELETE FROM orders WHERE order_id=4; #Delete Liz's order, Have to delete order_items first
 
 #Add in a new order
-INSERT INTO orders(cust_id, order_date) VALUES(2,"2022-09-21 16:20");
-INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(6,1,2);
+INSERT INTO orders(cust_id, order_date) VALUES(2,"2022-09-21 16:20"); #add new order for customer 2 - Liz
+INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(6,1,2); #add items for Liz's order
 UPDATE orders SET total_price=16 WHERE order_id=6;
 SELECT * FROM orders; #show orders
-SELECT * FROM orders_items; #show orders
+SELECT * FROM orders_items; #show orders_items
