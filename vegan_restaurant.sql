@@ -74,3 +74,25 @@ SHOW TABLES; #Show Tables
 DESCRIBE customers; #Show Columns, Datatypes, Constraints for tables
 SELECT * FROM customers; #Show customer records
 SELECT * FROM menu_items; #Show menu items records
+
+#Create Orders Table
+CREATE TABLE orders(
+order_id INT UNIQUE NOT NULL AUTO_INCREMENT,
+cust_id INT NOT NULL,
+total_price DECIMAL(6,2),
+PRIMARY KEY(order_id),
+FOREIGN KEY(cust_id) REFERENCES customers(cust_id));
+
+DESCRIBE orders;
+
+#Create Order Items Table
+CREATE TABLE orders_items(
+oi_id INT UNIQUE NOT NULL AUTO_INCREMENT,
+order_id INT NOT NULL,
+menu_item_id INT NOT NULL,
+quantity INT,
+PRIMARY KEY(oi_id),
+FOREIGN KEY(order_id) REFERENCES orders(order_id),
+FOREIGN KEY(menu_item_id) REFERENCES menu_items(menu_item_id));
+
+DESCRIBE orders_items;
