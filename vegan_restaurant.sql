@@ -31,6 +31,7 @@ DESCRIBE customers;
 DESCRIBE menu_items;
 
 ALTER TABLE customers ADD email VARCHAR(100) UNIQUE; #Add in email address
+#ALTER TABLE customers DROP email; #delete out email column
 
 ALTER TABLE customers MODIFY marketing_email BOOLEAN DEFAULT false; #Modify marketing_email to false
 
