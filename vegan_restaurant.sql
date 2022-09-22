@@ -146,6 +146,8 @@ SELECT * FROM orders WHERE total_price BETWEEN 1.00 AND 20.00; #Inclusive range 
 #Search for patterns in text data
 SELECT * FROM menu_items WHERE item_name LIKE "%r"; #where text ends with a s
 SELECT * FROM menu_items WHERE item_name LIKE "to%"; #where text begin with a to
+SELECT * FROM customers WHERE post_code LIKE "%SW%"; #where item has SW within it
+SELECT * FROM customers WHERE cust_name LIKE "p_%"; #where begins with a D and at least two characters long
 
 SELECT DISTINCT order_id from orders_items; #Selects the First Instance in a specific column
 
