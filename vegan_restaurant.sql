@@ -160,3 +160,41 @@ SELECT * FROM menu_items LIMIT 2; #First two records
 SELECT * FROM menu_items ORDER BY price DESC LIMIT 2; #Most expensive two items
 SELECT * FROM menu_items ORDER BY item_name ASC LIMIT 2; #first two items alphabetically
 SELECT * FROM menu_items ORDER BY item_name DESC LIMIT 2; #last two items alphabetically
+
+#Aggregate Functions - Analyses of data to create a single value (averages, totals, etc)
+#AVG = Average
+#SUM = Sum / Total
+#MIN = Minimum
+#MAX = Maximim
+#COUNT = Count
+
+SELECT AVG(price) FROM menu_items; #Average price of items
+SELECT MIN(price) FROM menu_items; #lowest price
+SELECT MAX(price) FROM menu_items; #highest price
+SELECT SUM(price) FROM menu_items; #total price
+SELECT COUNT(price) FROM menu_items; #counts number of instances
+SELECT SUM(total_price) FROM orders; #total price of all orders
+#SELECT SUM(price) FROM menu_items WHERE menu_item_id=2; #returns the price of a specific item
+
+#Nested Query - A Query in a query
+SELECT cust_id FROM orders WHERE order_id=3; #return customer id for order 3
+SELECT * FROM customers WHERE customer_id=5; #return customer id 5 return their details
+
+#To nest these would be
+SELECT * FROM customers WHERE cust_id=(SELECT cust_id FROM orders WHERE order_id=3); #Show customer details for order_id 3
+SELECT * FROM menu_items WHERE menu_item_id=(SELECT menu_item_id FROM orders_items WHERE oi_id=3); #Show menu_items for order items id 3
+
+#Joins - Join multiple tables together
+#INNER JOIN - default joing used by SQL - combines tables together based on data present in both tables
+SELECT * FROM customers JOIN orders ON customers.cust_id=orders.cust_id; #Joins customers and their orders (all columns), only returning those with an order
+SELECT customers.cust_name, customers.phone_number, orders.order_id FROM customers JOIN orders ON customers.cust_id=orders.cust_id;
+SELECT c.cust_name, c.phone_number,o.order_id FROM customers c JOIN orders o ON c.cust_id=o.cust_id; #as above but told it c = customer and o = order
+
+#Outer Joins - two types, Left Outer Join and Right Outer Join
+#Left OUTER JOIN
+SELECT * FROM customers c LEFT OUTER JOIN orders o ON c.cust_id=o.cust_id; #customers table is looking for records to match in the order table (displayed on the right of it), includes those without an order
+#Right OUTER JOIN
+SELECT * FROM customers c RIGHT OUTER JOIN orders o ON c.cust_id=o.cust_id; #only returns those with an order
+
+SELECT * FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
+SELECT c.cust_name, o.order_id, m.item_name, m.price FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
