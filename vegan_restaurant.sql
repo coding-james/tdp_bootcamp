@@ -116,6 +116,11 @@ DELETE FROM orders WHERE order_id=4; #Delete Liz's order, Have to delete order_i
 INSERT INTO orders(cust_id, order_date) VALUES(2,"2022-09-21 16:20"); #add new order for customer 2 - Liz
 INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(6,1,2); #add items for Liz's order
 UPDATE orders SET total_price=16 WHERE order_id=6;
+
+INSERT INTO orders(cust_id, order_date) VALUES(1,"2022-09-22 12:00"); #add new order for customer 1
+INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(7,1,2); #add items for customer 1
+UPDATE orders SET total_price=16 WHERE order_id=7;
+
 SELECT * FROM orders; #show orders, all columns
 SELECT * FROM orders_items; #show orders_items, all columns
 
@@ -187,14 +192,18 @@ SELECT c.cust_name, c.phone_number,o.order_id FROM customers c JOIN orders o ON 
 
 #Outer Joins - two types, Left Outer Join and Right Outer Join
 #Left OUTER JOIN
-SELECT * FROM customers c LEFT OUTER JOIN orders o ON c.cust_id=o.cust_id; #customers table is looking for records to match in the order table (displayed on the right of it), includes those without an order
+SELECT * FROM customers c LEFT OUTER JOIN orders o ON c.cust_id=o.cust_id; #customers table is looking for records to match in the order table (displayed on the right of it), includes those without an order and returns null
 #Right OUTER JOIN
 SELECT * FROM customers c RIGHT OUTER JOIN orders o ON c.cust_id=o.cust_id; #only returns those that have a record in the right table (orders)
 
 SELECT * FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
 SELECT c.cust_name, o.order_id, m.item_name, m.price FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
 
+#By customer, sum up all orders
+SELECT cust_id, SUM(total_price) AS total FROM orders GROUP BY cust_id;
+
 SHOW TABLES; #Show Tables
+USE qa_restaurant;
 SELECT * FROM customers; #Show customer records
 SELECT * FROM menu_items; #Show menu items records
 SELECT * FROM orders; #show orders
