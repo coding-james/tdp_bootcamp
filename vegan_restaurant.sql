@@ -8,10 +8,10 @@ phone_number VARCHAR(11) UNIQUE NOT NULL,
 address_1 VARCHAR(200) NOT NULL,
 address_2 VARCHAR(200),
 town_city VARCHAR(100),
-post_code VARCHAR(10),
+post_code VARCHAR(10) NOT NULL,
 delivery_info VARCHAR(300),
-subscribe BOOLEAN DEFAULT false,
-marketing_email BOOLEAN DEFAULT true,
+subscribe BOOLEAN DEFAULT false NOT NULL,
+marketing_email BOOLEAN DEFAULT false,
 marketing_text BOOLEAN DEFAULT false,
 marketing_post BOOLEAN DEFAULT false,
 PRIMARY KEY(cust_id));
@@ -33,11 +33,9 @@ DESCRIBE menu_items;
 ALTER TABLE customers ADD email VARCHAR(100) UNIQUE; #Add in email address
 #ALTER TABLE customers DROP email; #delete out email column
 
-ALTER TABLE customers MODIFY marketing_email BOOLEAN DEFAULT false; #Modify marketing_email to false
-
-ALTER TABLE customers MODIFY post_code VARCHAR(10) NOT NULL; #Modify post_code to NOT NULL
-
-ALTER TABLE customers MODIFY subscribe BOOLEAN DEFAULT false NOT NULL; #Modify subscribe to NOT NULL
+#ALTER TABLE customers MODIFY marketing_email BOOLEAN DEFAULT false; #Modify marketing_email to false
+#ALTER TABLE customers MODIFY post_code VARCHAR(10) NOT NULL; #Modify post_code to NOT NULL
+#ALTER TABLE customers MODIFY subscribe BOOLEAN DEFAULT false NOT NULL; #Modify subscribe to NOT NULL
 #DROP DATABASE qa_restaurant; #delete database
 
 #Adding Data
@@ -63,8 +61,8 @@ UPDATE customers SET cust_name="Liz" WHERE cust_id=2; #Change Boris to Liz
 UPDATE menu_items SET item_name="Hot Chilli", item_desc="Spicy plant-based chilli served with Sweet Potato and Sour Cream" Where menu_item_id=2; #Update Chili name and description
 
 #Delete Records
-DELETE FROM customers WHERE cust_id=4; #Remove Nelson
-DELETE FROM menu_items WHERE menu_item_id=3; #Remove Vegan Lobster
+#DELETE FROM customers WHERE cust_id=4; #Remove Nelson
+#DELETE FROM menu_items WHERE menu_item_id=3; #Remove Vegan Lobster
 
 #Add additional records
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Not Mushroom for this Burger","Mushroom Burger with triple cooked chips","Gluten",9.5,632,True);
@@ -81,7 +79,7 @@ order_id INT UNIQUE NOT NULL AUTO_INCREMENT,
 cust_id INT NOT NULL,
 total_price DECIMAL(6,2),
 PRIMARY KEY(order_id),
-FOREIGN KEY(cust_id) REFERENCES customers(cust_id));
+FOREIGN KEY(cust_id) REFERENCES customers(cust_id) ON DELETE CASCADE);
 
 DESCRIBE orders;
 
@@ -92,8 +90,8 @@ order_id INT NOT NULL,
 menu_item_id INT NOT NULL,
 quantity INT,
 PRIMARY KEY(oi_id),
-FOREIGN KEY(order_id) REFERENCES orders(order_id),
-FOREIGN KEY(menu_item_id) REFERENCES menu_items(menu_item_id));
+FOREIGN KEY(order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+FOREIGN KEY(menu_item_id) REFERENCES menu_items(menu_item_id) ON DELETE CASCADE);
 
 DESCRIBE orders_items; #View table columns, data types and constraints
 
@@ -123,5 +121,40 @@ DELETE FROM orders WHERE order_id=4; #Delete Liz's order, Have to delete order_i
 INSERT INTO orders(cust_id, order_date) VALUES(2,"2022-09-21 16:20"); #add new order for customer 2 - Liz
 INSERT INTO orders_items(order_id, menu_item_id, quantity) VALUES(6,1,2); #add items for Liz's order
 UPDATE orders SET total_price=16 WHERE order_id=6;
-SELECT * FROM orders; #show orders
-SELECT * FROM orders_items; #show orders_items
+SELECT * FROM orders; #show orders, all columns
+SELECT * FROM orders_items; #show orders_items, all columns
+
+#DROP TABLE orders_items; #Used to delete tables and add in ON DELETE Cascade
+#DROP TABLE orders; #Used to delete tables and add in ON DELETE Cascade
+#DELETE FROM customers WHERE cust_id=2; #Delete customer 'Liz', deletion should cascade
+
+SELECT * FROM orders_items WHERE order_id=3; #filters to show just order 3
+# Operators
+# = eqaul to
+# > greater than (exclusive)
+# < less than (exclusive)
+# != not equal to
+# >= greater than or equal to (inclusive)
+# <= less than or equal to (inclusive)
+SELECT * FROM orders WHERE total_price>7.50;
+SELECT * FROM orders WHERE total_price!=7.50;
+
+#Search for a range
+SELECT * FROM orders WHERE total_price>1.00 AND total_price<20.00; #exclusive range
+SELECT * FROM orders WHERE total_price BETWEEN 1.00 AND 20.00; #Inclusive range like using >= and <=
+
+#Search for patterns in text data
+SELECT * FROM menu_items WHERE item_name LIKE "%r"; #where text ends with a s
+SELECT * FROM menu_items WHERE item_name LIKE "to%"; #where text begin with a to
+
+SELECT DISTINCT order_id from orders_items; #Selects the First Instance in a specific column
+
+#Sorting/ordering data - works with Text, Numbers and Dates
+SELECT * FROM menu_items ORDER BY item_name; #defaults to Acending Order, you can include ASC to specify
+SELECT * FROM menu_items ORDER BY item_name DESC; #sorted in Descending Order
+
+#Limit Order, Top x records
+SELECT * FROM menu_items LIMIT 2; #First two records
+SELECT * FROM menu_items ORDER BY price DESC LIMIT 2; #Most expensive two items
+SELECT * FROM menu_items ORDER BY item_name ASC LIMIT 2; #first two items alphabetically
+SELECT * FROM menu_items ORDER BY item_name DESC LIMIT 2; #last two items alphabetically
