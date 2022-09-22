@@ -48,19 +48,33 @@ SELECT name, SurfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 10;
 #Russia, Anarctica, Canada, China, USA, Brazil, Australia, India, Argentina and Kazakstan
 
 #11 - List the five largest cities by population in Japan
+SELECT city.name, city.population FROM country JOIN city ON country.code=city.CountryCode WHERE city.CountryCode=(SELECT code FROM country WHERE name="Japan") ORDER BY city.population DESC LIMIT 5;
+# Tokyo, Jakohama, Osaka, Nagoya, Sapporo
 
-#12 - List the names and country codes of every country with Elizabeth II as its Head of State. You will need to fix the mistake first! 13.	List the top ten countries with the smallest population-to-area ratio. Discard any countries with a ratio of 0.
+#12 - List the names and country codes of every country with Elizabeth II as its Head of State. You will need to fix the mistake first! 
+UPDATE country SET HeadOfState="Elizabeth II" WHERE HeadOfState="Elisabeth II";
+SELECT name, code FROM country WHERE HeadOfState="Elizabeth II";
+
+#13 - List the top ten countries with the smallest population-to-area ratio. Discard any countries with a ratio of 0.
+SELECT name, population, SurfaceArea, (population/SurfaceArea) AS ratio FROM country WHERE population!=0 ORDER BY ratio ASC LIMIT 10;
 
 #14 - List every unique world language.
+SELECT DISTINCT Language FROM countrylanguage;
 
 #15 - List the names and GNP of the world's top 10 richest countries.
+SELECT name, GNP FROM country ORDER BY GNP DESC LIMIT 10;
 
 #16 - List the names of, and number of languages spoken by, the top ten most multilingual countries.
 
+
 #17 - List every country where over 50% of its population can speak German.
 
+
 #18 - Which country has the worst life expectancy? Discard zero or null values.
+SELECT name, LifeExpectancy FROM country WHERE LifeExpectancy IS NOT NULL OR LifeExpectancy!=0 ORDER BY LifeExpectancy ASC LIMIT 1;
 
 #19 - List the top three most common government forms.
+SELECT GovernmentForm, COUNT(GovernmentForm) As GF_Count FROM country ORDER BY GF_Count DESC LIMIT 3;
 
 #20 - How many countries have gained independence since records began?
+SELECT COUNT(name) FROM country WHERE IndepYear IS NOT NULL;
