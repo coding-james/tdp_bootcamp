@@ -26,11 +26,11 @@ calories INT NOT NULL,
 availability BOOLEAN DEFAULT false NOT NULL,
 PRIMARY KEY(menu_item_id));
 
-SHOW TABLES;
-DESCRIBE customers;
+SHOW TABLES; #shows the name of the database tables
+DESCRIBE customers; #shows a specific table, its columns, datatypes and constraints
 DESCRIBE menu_items;
 
-ALTER TABLE customers ADD email VARCHAR(100) UNIQUE; #Add in email address
+ALTER TABLE customers ADD email VARCHAR(100) UNIQUE; #Add in email address column
 #ALTER TABLE customers DROP email; #delete out email column
 
 #ALTER TABLE customers MODIFY marketing_email BOOLEAN DEFAULT false; #Modify marketing_email to false
@@ -51,7 +51,7 @@ INSERT INTO customers(cust_name, email, phone_number, address_1, address_2, town
 #Add Menu Items
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Jambalaya","Plant-based dish with rice and beans cooked in a single pot","Peanuts",8,324,True);
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Chilli","Plant-based chilli served with Sweet Potato","",7.5,400,True);
-INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Vegan Lobster","Carrots shapped to look like a lobster","",6.50,200,True);
+INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Vegan Lobster","Carrots shaped to look like a lobster","",6.50,200,True);
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Give Peas a Chance","Peas!","",3,100,True);
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Toast Sandwhich","Slice of toast between two slices of bread, seasoned with salt and pepper","gluten",3.5,450,False);
 
@@ -67,11 +67,6 @@ UPDATE menu_items SET item_name="Hot Chilli", item_desc="Spicy plant-based chill
 #Add additional records
 INSERT INTO menu_items(item_name, item_desc, allergens, price, calories, availability) VALUES("Not Mushroom for this Burger","Mushroom Burger with triple cooked chips","Gluten",9.5,632,True);
 INSERT INTO customers(cust_name, email, phone_number, address_1, address_2, town_city, post_code, delivery_info, subscribe, marketing_email, marketing_text, marketing_post) VALUES("William", "PrinceOfWales@royalfamily.uk", "07000000006", "Buckingham Palace","","London","SW1A 1AA","",0,0,0,0);
-
-SHOW TABLES; #Show Tables
-DESCRIBE customers; #Show Columns, Datatypes, Constraints for tables
-SELECT * FROM customers; #Show customer records
-SELECT * FROM menu_items; #Show menu items records
 
 #Create Orders Table
 CREATE TABLE orders(
@@ -194,7 +189,13 @@ SELECT c.cust_name, c.phone_number,o.order_id FROM customers c JOIN orders o ON 
 #Left OUTER JOIN
 SELECT * FROM customers c LEFT OUTER JOIN orders o ON c.cust_id=o.cust_id; #customers table is looking for records to match in the order table (displayed on the right of it), includes those without an order
 #Right OUTER JOIN
-SELECT * FROM customers c RIGHT OUTER JOIN orders o ON c.cust_id=o.cust_id; #only returns those with an order
+SELECT * FROM customers c RIGHT OUTER JOIN orders o ON c.cust_id=o.cust_id; #only returns those that have a record in the right table (orders)
 
 SELECT * FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
 SELECT c.cust_name, o.order_id, m.item_name, m.price FROM customers c JOIN orders o ON c.cust_id=o.cust_id JOIN orders_items oi ON o.order_id=oi.order_id JOIN menu_items m ON oi.menu_item_id=m.menu_item_id;
+
+SHOW TABLES; #Show Tables
+SELECT * FROM customers; #Show customer records
+SELECT * FROM menu_items; #Show menu items records
+SELECT * FROM orders; #show orders
+SELECT * FROM orders_items; #show orders items
