@@ -41,7 +41,16 @@ SELECT a.first_name, a.last_name, fa.actor_id, COUNT(fa.actor_id) AS actor_films
 
 # 14.	When is 'Academy Dinosaur' due?
 SELECT release_year FROM film WHERE title="Academy Dinosaur";
-#2006
+#When was the film due to be released 2006
+
+SHOW TABLES;
+SELECT * FROM rental;
+SELECT * FROM inventory;
+SELECT r.return_date, i.film_id FROM rental r JOIN inventory i ON r.inventory_id=i.inventory_id WHERE i.film_id=(SELECT DISTINCT f.film_id FROM film f JOIN inventory i ON f.film_id=i.film_id WHERE f.title="Academy Dinosaur") AND return_date IS NOT NULL ORDER BY return_date ASC LIMIT 1;
+
+SELECT DISTINCT f.film_id FROM film f JOIN inventory i ON f.film_id=i.film_id WHERE f.title="Academy Dinosaur";
+
+#When was the rental due back
 
 # 15.	What is the average runtime of all films?
 SELECT AVG(length) AS avg_runtime FROM film;
