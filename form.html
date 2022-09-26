@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <!-- FORMS -->
+    <!-- Forms can have a METHOD and an ACTION. Method how we send some information, Action where to send the information -->
+
+    <!-- GET method sends form input to URL bar. with a name (key) value pair and used like a hyperlink -->
+    <form method="get" action="search">
+        <h4>GET Form</h4>
+            <input type="text" name="q">
+            <button type="submit">SEARCH</button>
+    </form>
+
+    <!-- POST method sends data to an ACTION url -->
+    <form method="post" action="mailform.php">
+        <h4>Post Form</h4>
+        <input name="sender" type="text"/>
+        <input name="content" type="text"/>
+        <button type="submit">SEND</button>
+    </form>
+
+    <!-- Forms can be created without a method or an action -->
+    <form>
+        <h4>More Inputs</h4>
+        <input type="checkbox" name="checkboxOne" value="1"/>1
+        <input type="checkbox" name="checkboxTwo" value="2"/>2
+
+        <fieldset>
+            <legend>Question 1:</legend>
+            <input type="radio" name="mc" value="a"/>a
+            <input type="radio" name="mc" value="b"/>b
+            <input type="radio" name="mc" value="c"/>c
+            <input type="radio" name="mc" value="d"/>d
+        </fieldset>
+
+        <input type="date" name="partyTime"/>
+
+        <input type="color" name="picker"/>
+    </form>
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>
