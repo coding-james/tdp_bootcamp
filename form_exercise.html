@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Sign Up Form</title>
+</head>
+<body>
+    <form method="post" action="index.html">
+        <h1>Sign Up</h1>
+        <fieldset>
+            <legend>Your Basic Info</legend>
+            <label for="myName">Name:</label>
+            <input type="text" name="user.name" id="myName">
+            <br>
+            <label for="myEmail">Email:</label>
+            <input type="email" name="user.email" id="myEmail">
+            <br>
+            <label for="myPassword">Password:</label>
+            <input type="password" name="user.password" id="myPassword">
+            <br>
+            <label for="myGender">Gender:</label>
+            <br>
+            <input type="radio" id="m_gender" name="user.gender" value="male"><label for="m.gender">Male</label><br>
+            <input type="radio" id="f_gender" name="user.gender" value="female"><label for="f.gender">Female</label>
+        </fieldset>
+        <button type="submit">Sign Up</button>
+    </form>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
