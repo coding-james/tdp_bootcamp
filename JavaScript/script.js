@@ -24,7 +24,8 @@ console.error(text);
 //Use + to concatenate
 console.log("%c" + text, "color: black; background-color: white; font-size: 20px; padding: 5px;");
 
-// Getting started with JavaScript
+
+// Exercise 1: Getting started with JavaScript
 // Exercise 1.1: Create 4 different console logging statements, name, last name, where you are from and star sign
 console.log("James");
 console.info("Bond");
@@ -44,10 +45,12 @@ console.log(`My Favourite car is ${carMake} and the model is ${carModel}`);
 const formattedText = "formatted message"
 console.log("This text is going to be formatted %c" + formattedText, "color: orange; font-family: fantasy; font-style: bold; background-color: black; padding: 10px;");
 
+// 
 // VARIABLES
-//let can change value, called Mutable
-//const can't be changed, called Immutable
-//var no longer used as insecure, was similar to let.
+// 
+    //let can change value, called Mutable
+    //const can't be changed, called Immutable
+    //var no longer used as insecure, was similar to let.
 
 // KEY PAIRS
 let myObject = {
@@ -66,16 +69,15 @@ let myDetails = {
 console.log(myDetails);
 
 //String interpolation
-//using one string and literals containg placeholders
-//called template literal
-// remeber to use ` instead of "" or ''
+    //using one string and literals containg placeholders
+    //called template literal
+    // remeber to use ` instead of "" or ''
 
 let stringCalc = `13 * 12 = ${13 * 12}`;
 console.log(stringCalc);
 
 
-//VARIABLES EXERCISE
-
+// Exercise 2 - Variables
 // Exercise 2.1: Fint JavaScripts types:
 
 let a;
@@ -98,7 +100,9 @@ let totalLeftToPay = totalMoney - moneyPaidSoFar;
 
 console.log(`The total bill is £${totalMoney} the remaining amount of money to be paid is £${totalLeftToPay}`)
 
+// 
 // ITERATION / LOOPS
+// 
 
 // FOR - uses a counter, runs while condition is met
 // i is used to represent iteration
@@ -147,11 +151,11 @@ switch(num) {
 }
 
 // Cameron example
-// iterator is equal to 2
-// condition is i<6
-// if true print i + 1
-// then interate i by 2
-// if false stop
+    // iterator is equal to 2
+    // condition is i<6
+    // if true print i + 1
+    // then interate i by 2
+    // if false stop
 
 // WHILE
 let i = 2;
@@ -165,6 +169,7 @@ for(let i = 2; i <=6; i = i + 2) {
     console.log(i+1);
 }
 
+// Exercise 3 - Iteration / Loops
 // Exercise 3.1 - Recreate the Flow Chart as a Loop
 let A = 100;
 while(A <= 200) {
@@ -228,3 +233,107 @@ switch(day) {
         console.warn("You didn't enter a day of the week");
         break;
 }
+
+// 
+// CONDITIONS - if something is true or false
+// 
+    // Truthy and Falsey - not the same as Boolean
+    // Things that are Falsey
+
+let x = false;
+x = 0;
+x = "";
+
+console.log(x === false);
+
+// Unresolved - may also be a falsey
+    // undefined
+    // null
+    // NaN - not a number
+
+
+// IF, ELSE IF and ELSE statments
+// check a condition and run as a code block if condition is met
+
+let aIf = 0;
+
+if (aIf == 0) {
+    console.log("sunshine"); 
+} else if (aIf != 2) {
+    console.log("moonlight");
+} else {
+    console.log("boogie");
+}
+
+//If aIF = 0, then "sunshine", if not equal to 2, "moonlight". Otherwise (when it is 2) "boogie"
+
+// Ternary IF
+// Shorthand version of the if / else
+
+let p = 2;
+
+if (p == 2) {
+    console.log("p is 2");
+} else {
+    console.log("p is not 2");
+}
+
+p == 2 ? console.log("p is 2") : console.log("p is not 2");
+
+// Equality and Type - compares value, allows JS to modify datatypes
+"1" == 1 ? console.log(true) : console.log(false);
+
+// Strictly equals operator - compares value AND datatype
+"1" === 1 ? console.log(true) : console.log(false);
+
+// && stands for AND
+if ( 1 == 1 && 2 == 2) {
+    console.log("this works")
+}
+
+//  || stands for OR
+if (1 == 2 || 2 == 2) {
+    console.log("only one of these has to work")
+}
+
+// Exercise 4 - Conditionals with Truthy / Falsey
+// Exercise 4.1 what is return values for the following
+
+let strictA = true;
+let strictB = 1;
+
+console.log(strictA == strictB);
+// prediction = true, as not comparing datatypes and 1 also equals true - CORRECT
+
+console.log(strictA === strictB);
+// prediction = false as now comparing datatypes - CORRECT
+
+// Exercise 4.2 - consider the following code, what will the results be
+console.log(strictA != strictB);
+// prediction = false, as the values will equal each other - double negative - CORRECT
+
+console.log(strictA !== strictB);
+// prediction = true, as the values and datatypes don't match - double negative - CORRECT
+
+// Exercise 4.3 - create an IF statement which statifies the following:
+    // Declare a variable age
+    // write a condition which checks between 18 AND 65
+    // return a value in each case where the condition is satisfied or not
+    // extra - consider a case where age undr '18' returns below 18
+
+let userAge = 51
+
+if (userAge >= 18 && userAge <=65) {
+    console.log(`${userAge} is between 18 and 65`);
+} else if (userAge > 65) {
+    console.log("user over 65")
+} else {
+    console.log("user below 18")
+}
+
+// Exercise 4.4 - Use ternary-if syntax to check if age is above 50
+userAge > 50 ? console.log("user is over 50") : console.log("user is 50 or younger");
+
+// Alternative method - but above was also correct
+let result = userAge > 50 ? "user is over 50" : "user is 50 or younger";
+console.log(result);
