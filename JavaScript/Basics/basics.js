@@ -118,3 +118,124 @@ switch(day){
     default:
         console.log("not a day we're interested in")
 }
+
+//Ternary Statements
+// ternary operator - ?
+// syntax: condition ? valueIfTrue : valueIfFalse
+//shortern code if you can, unless it will become more complicated to understand
+
+let age = 10;
+if(age>=25) {
+    console.log("can buy alco");
+}else{
+    console.log("can't buy");
+}
+
+//Ternary
+let tern = age>=25 ? "can buy alco" : "can't buy";
+console.log(tern, "(ternary)");
+
+
+//Objects - unordered collection of related data and stored in key value pairs
+let personObj = {
+    name: "James Bond",
+    age: 45,
+    job: "Secret Agent"
+}
+
+console.log("person: ", personObj);
+console.log(JSON.stringify(personObj)); //method to take an object and convert to a string
+
+//JSON - JavaScript Object Notation - would usually store elsewhere
+let myObj = `[{
+    "name": "James Bond",
+    "age": 45,
+    "job": "Secret Agent"
+},
+{
+    "name": "Daniel Craig",
+    "age": 48,
+    "job": "Actor"
+}]`;
+
+console.log("JSON", myObj); //just stored as a string
+
+// Example of loading JSON Data
+//GET request (READ)
+//Fetching data will often appear lower down the console, as takes longer to run and receive
+fetch("people.json")
+.then(response => response.json())
+.then(data => console.log("fetch", data));
+
+
+// Arrays - lists
+// In JavaScript you can store different datatypes in the same list - not possible in all languages
+
+const myArr = [1,"2",3,4,5,6,7];
+const names = ["Vic", "Bob", "George", "Urika", "Mark"];
+console.log(myArr);
+console.log(names);
+
+// Keys start at 0, so to return name 2, you'd actually state key 1
+console.log(names[1]);
+
+// Add to list
+names.push("Dove from above");
+console.log(names);
+
+// Destructuring
+// Allows us to extract data from arrays, get individual records
+console.log(myArr[0]+myArr[1]); //not destructured
+
+const [a1, a2, a3, a4, a5, a6, a7] = myArr;
+console.log(a1+a2); //as a2 is a string add them in a string: 1 + "2" = 12
+console.log(a1+parseInt(a2)); //pasrseInt finds the numbers in string and convert to numbers = 1 + 2 = 3
+
+// spread operator - ...
+const[name1, name2, ...rest] = names;
+console.log(name2);
+console.log("rest: ", rest);
+
+const grades = [21, 43, 54, 64, 23, 96, 27, 84, 100];
+const[,,,grade, ...others] = grades; //if we only wanted to store the 3 entry
+console.log(grade);
+
+
+// Functions / methods - sets of instructions you want to execute / reuse
+// 3 ways to write functions
+
+// function - global scope - can call function before it's been declared
+
+myFun("normal function"); //intially will still try to run, but will do nothing
+
+//declare the function
+function myFun(p){
+    console.log(p);
+}
+
+//multi
+myFunB("bye","hi");
+function myFunB(p, x){
+    console.log(p+" "+x);
+}
+
+
+// function expression - has to be initialised before called
+const myFun2 = function(x){
+    console.log(x);
+}
+
+myFun2("function expression");
+
+
+//arrow functions - more concise way of writing function expressions - has to be initialised before called
+const myFun3 = (z) => console.log(z); //single thing
+myFun3("arrow function");
+
+//multi things
+const myFun4 = (t,u) => {
+    let sum = t + u;
+    console.log(t,"+",u,"=",sum);
+}
+
+myFun4(3,4);
