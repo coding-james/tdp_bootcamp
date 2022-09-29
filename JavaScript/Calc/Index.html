@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet", type="text/css" href="./style.css">
     <title>Calculator</title>
 </head>
 <body>
+    <h1>Calculator</h1>
+    <form id="calc">
+        <div id="results">
+            <!-- Screen for results -->
+        </div>
+        <div id="numbers">
+            <div id="789">
+                <button id="b_7" value="7">7</button>
+                <button id="b_8" value="8">8</button>
+                <button id="b_9" value="9">9</button>
+            </div>
+            <div id="456">
+                <button id="b_4" value="4">4</button>
+                <button id="b_5" value="5">5</button>
+                <button id="b_6" value="6">6</button>
+            </div>
+            <div id="123">
+                <button id="b_1" value="1">1</button>
+                <button id="b_2" value="2">2</button>
+                <button id="b_3" value="3">3</button>
+            </div>
+            <div id="0">
+                <button id="b_0" value="0">0</button>
+            </div>
+        </div>
+        <div id="operators">
+            <div>
+                <button id="b_add" value="add">+</button>
+                <button id="b_subtract" value="subtract">-</button>
+                <button id="b_multiply" value="multiply">*</button>
+            </div>
+            <div>
+                <button id="b_divide" value="divide">/</button>
+                <button id="b_clear">Clr</button>
+            </div>
+        </div>
+    </form>
     <script src="./calc.js"></script>
 </body>
 </html>
