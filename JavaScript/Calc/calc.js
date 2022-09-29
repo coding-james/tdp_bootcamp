@@ -1,19 +1,16 @@
 "use strict"
 
-// Add
-// function add(n1,n2) {
-//     let sum = n1 + n2;
-//     console.log(sum);
-// }
-
-//Add as an Arrow Function
-const add = (n1,n2) => console.log((n1 + n2));
+// Add - as a standard function
+function add(n1,n2) {
+    let sum = n1 + n2;
+    console.log(sum);
+}
 
 add(30,12);
 
 
-// Subtract
-function subtract(n1, n2) {
+// Subtract - as an expression function
+const subtract = function(n1, n2) {
     let sum = n1 - n2;
     console.log(sum);
 }
@@ -21,19 +18,13 @@ function subtract(n1, n2) {
 subtract(28,12);
 
 
-// Multiply
-function multiply(n1, n2) {
-    let sum = n1 * n2;
-    console.log(sum);
-}
+// Multiply - as an Arrow Function
+const multiply = (n1,n2) => console.log((n1 * n2));
 
 multiply(5,10);
 
 
-// Divide
-function divide(n1, n2) {
-    let sum = n1 / n2;
-    console.log(sum);
-}
+// Divide - as an Arrow Function
+const divide = (n1,n2) => console.log((n1 / n2));
 
 divide(5,10);
