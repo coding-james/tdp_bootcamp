@@ -65,18 +65,25 @@ fetch("https://reqres.in/api/users?page=2")
         return response.json();
     })
     .then(function (data){
-        console.log(data);
+        console.log(data.data);
     })
     .catch(function (err){
         console.error();
     })
+
+// As above but through Axios
+function withAxios(){
+    axios.get("https://reqres.in/api/users")
+    .then(response => appendData(response.data.data))
+    .catch(err => console.error(err));
+}
 
 fetch("https://reqres.in/api/users/2")
     .then(function(response){
         return response.json();
     })
     .then(function (data){
-        console.log(data);
+        console.log(data.data);
     })
     .catch(function (err){
         console.error();
