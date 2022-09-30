@@ -25,10 +25,11 @@ return (y) => {
 };
 }
 
-let multi2 = multiply(2);
-console.log(multi2(20));
-let multi5 = multiply(5);
-console.log(multi5(5));
+let multi2 = multiply(2); // x = 2 - sets the outer
+console.log(multi2(20)); // y = 20 - sets the inner and multiplies by the outer
+
+let multi5 = multiply(5); // x = 5 - sets the outer
+console.log(multi5(5)); // y = 5 - sets the inner and multiplies by the outer
 
 
 // Exercise 1.2 - Create a Person function using getters and setters for the property first name.
@@ -65,8 +66,10 @@ let person = () => {
       },
     };
   }
+  
   let personA = person();
   console.log(personA.getName());
+  
   personA.setName("Craig");
   console.log(personA.getName());
 
@@ -89,16 +92,16 @@ let person = () => {
  }
  let count = changeCount();
  console.log(count.value()); // 0
- count.increment();
- count.increment();
+ count.increment(); //increases counter by 1 = 1
+ count.increment(); //increases counter by 1 = 2
  console.log(count.value()); // 2
- count.decrement();
+ count.decrement(); //decreases counter by 1 = 1
  console.log(count.value()); // 1
 
 
 //  EXERCISE - Callbacks and Promises
 
-// Exercise 2.1 - Create a callback that asks the user for a value, then increase by 10 through anoter function
+//Exercise 2.1 - Create a callback that asks the user for a value, then increase by 10 through anoter function
 
 const answer = (n1) => {
     alert(`Your new number is ${n1+10}`);
