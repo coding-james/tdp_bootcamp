@@ -1,10 +1,10 @@
 "use strict"
 
-const URL = "https://reqres.in/api/users";
-// const URL = "./Exerise.json";
-// const URL2 = "./trainers.json";
+//EXERCISE - Ash Axios to Fetch Data
 
-// //fetch GET request from specified URL
+const URL = "https://reqres.in/api/users";
+
+// //fetch GET request from specified URL - old method
 // fetch(URL)
 //     .then(function(response){
 //         return response.json();
@@ -16,13 +16,10 @@ const URL = "https://reqres.in/api/users";
 //         console.error();
 //     })
 
+// Get data via Axios
 axios.get(URL)
 .then(response => console.log(response.data.data))
 .catch(err => console.error(err));
-
-// axios.get(URL2)
-// .then(response => console.log(response.data))
-// .catch(err => console.error(err));
 
 axios.get(URL)
 .then(response => appendData(response.data.data))//second .data is to allow it to get in the next set of brackets
@@ -60,21 +57,27 @@ function appendData(data){
    }
 }
 
+// Exercise (QA Community) 1
+// Exercise 1.1 GET request for List User
 
+fetch("https://reqres.in/api/users?page=2")
+    .then(function(response){
+        return response.json();
+    })
+    .then(function (data){
+        console.log(data);
+    })
+    .catch(function (err){
+        console.error();
+    })
 
-
-// //Displaying data on the webpage
-// // For each item in the data list, create a divm then card and p with the details
-// function appendData(data){
-//     let dataList = document.getElementById("myData");
-//     for(let i = 0; i<data.length; i++){
-//         let trainer = document.createElement("div");
-//         let id = document.createElement("card");
-//         id.innerText = "ID: " + data[i].userId;
-//         trainer.appendChild(id);
-//         let name = document.createElement("p");
-//         name.innerText = "Name: " + data[i].name;
-//         trainer.appendChild(name);
-//         dataList.appendChild(trainer);
-//     }
-// }
+fetch("https://reqres.in/api/users/2")
+    .then(function(response){
+        return response.json();
+    })
+    .then(function (data){
+        console.log(data);
+    })
+    .catch(function (err){
+        console.error();
+    })
