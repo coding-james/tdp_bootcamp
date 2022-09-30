@@ -1,39 +1,41 @@
 "use strict"
 
-// Add
-// function add(n1,n2) {
-//     let sum = n1 + n2;
-//     console.log(sum);
-// }
+//prompt for number 1
+//prompt operator
+//prompt for number 2
+//calc on equals
+//create function to clear
 
-//Add as an Arrow Function
-const add = (n1,n2) => console.log((n1 + n2));
+const calc = (n1, n2, operator) => {
 
-add(30,12);
-
-
-// Subtract
-function subtract(n1, n2) {
-    let sum = n1 - n2;
-    console.log(sum);
+    switch(operator){
+        case "Add":
+            console.log(n1 + n2);
+            break;
+        case "Subtract":
+            console.log(n1 - n2);
+            break;
+        case "Multiply":
+            console.log(n1 * n2);
+            break;
+        case "Divide":
+            console.log(n1 / n2);
+            break;
+        default:
+            console.log(0)
+    }
 }
 
-subtract(28,12);
+const cScreen = document.getElementById("calcScreen") //get the counter element
 
-
-// Multiply
-function multiply(n1, n2) {
-    let sum = n1 * n2;
-    console.log(sum);
+const b_1 = () => {
+    cScreen.value = 1;
 }
 
-multiply(5,10);
-
-
-// Divide
-function divide(n1, n2) {
-    let sum = n1 / n2;
-    console.log(sum);
+const b_2 = () => {
+    cScreen.value = 2;
 }
 
-divide(5,10);
+const b_3 = () => {
+    cScreen.value = 3;
+}

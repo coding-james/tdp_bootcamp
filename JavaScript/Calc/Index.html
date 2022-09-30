@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet", type="text/css" href="./style.css">
     <title>Calculator</title>
 </head>
 <body>
+    <h1>Calculator</h1>
+    <form id="calc">
+        <div id="results">
+            <input type="number" value="0" id="calcScreen" readonly>
+        </div>
+        <br>
+        <div id="numbers">
+            <div id="789">
+                <button id="b_7" value="7">7</button>
+                <button id="b_8" value="8">8</button>
+                <button id="b_9" value="9">9</button>
+            </div>
+            <div id="456">
+                <button id="b_4" value="4">4</button>
+                <button id="b_5" value="5">5</button>
+                <button id="b_6" value="6">6</button>
+            </div>
+            <div id="123">
+                <button id="b_1" onClick="b_1()">1</button>
+                <button id="b_2" onClick="b_2()">2</button>
+                <button id="b_3" onClick="b_3()">3</button>
+            </div>
+            <div id="0">
+                <button id="b_0" value="0">0</button>
+            </div>
+        </div>
+        <div id="operators">
+            <br>
+            <div>
+                <button id="b_add" value="Add" onClick="">+</button>
+                <button id="b_subtract" value="Subtract" onClick="">-</button>
+                <button id="b_multiply" value="Multiply" onClick="">*</button>
+            </div>
+            <div>
+                <button id="b_divide" value="Divide" onClick="">/</button>
+                <button id="b_divide" value="Calc" onClick="calc()">Calc</button>
+                <button id="b_clear">Clr</button>
+            </div>
+        </div>
+    </form>
     <script src="./calc.js"></script>
 </body>
 </html>
