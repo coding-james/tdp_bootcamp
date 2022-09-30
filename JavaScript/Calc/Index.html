@@ -11,40 +11,40 @@
     <h1>Calculator</h1>
     <form id="calc">
         <div id="results">
-            <input type="number" value="0" id="calcScreen" readonly>
+            <input type="text" value="0" id="counter" readonly>
         </div>
         <br>
         <div id="numbers">
             <div id="789">
-                <button id="b_7" value="7">7</button>
-                <button id="b_8" value="8">8</button>
-                <button id="b_9" value="9">9</button>
+                <button id="bttn7" onClick="b7()">7</button>
+                <button id="bttn8" onClick="b8()">8</button>
+                <button id="bttn9" onClick="b9()">9</button>
             </div>
             <div id="456">
-                <button id="b_4" value="4">4</button>
-                <button id="b_5" value="5">5</button>
-                <button id="b_6" value="6">6</button>
+                <button id="bttn4" onClick="b4()">4</button>
+                <button id="bttn5" onClick="b5()">5</button>
+                <button id="bttn6" onClick="b6()">6</button>
             </div>
             <div id="123">
-                <button id="b_1" onClick="b_1()">1</button>
-                <button id="b_2" onClick="b_2()">2</button>
-                <button id="b_3" onClick="b_3()">3</button>
+                <button id="bttn1" onClick="b1()">1</button>
+                <button id="bttn2" onClick="b2()">2</button>
+                <button id="bttn3" onClick="b3()">3</button>
             </div>
             <div id="0">
-                <button id="b_0" value="0">0</button>
+                <button id="bttn0" onClick="b0()">0</button>
             </div>
         </div>
         <div id="operators">
             <br>
             <div>
-                <button id="b_add" value="Add" onClick="">+</button>
-                <button id="b_subtract" value="Subtract" onClick="">-</button>
-                <button id="b_multiply" value="Multiply" onClick="">*</button>
+                <button id="bttnAdd" onClick="Add">+</button>
+                <button id="bttnSubtract" onClick="Subtract">-</button>
+                <button id="bttnMultiply" onClick="Multiply"></button>
             </div>
             <div>
-                <button id="b_divide" value="Divide" onClick="">/</button>
-                <button id="b_divide" value="Calc" onClick="calc()">Calc</button>
-                <button id="b_clear">Clr</button>
+                <button id="bttnDivide" onClick="Divide">/</button>
+                <button id="bttnCalc" onClick="calc()">Calc</button>
+                <button id="bttnClear">Clr</button>
             </div>
         </div>
     </form>
