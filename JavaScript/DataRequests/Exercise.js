@@ -18,7 +18,7 @@ const URL = "https://reqres.in/api/users";
 
 // Get data via Axios
 axios.get(URL)
-.then(response => console.log(response.data.data))
+.then(response => console.log("Axios Data", response.data.data))
 .catch(err => console.error(err));
 
 axios.get(URL)
@@ -65,19 +65,77 @@ fetch("https://reqres.in/api/users?page=2")
         return response.json();
     })
     .then(function (data){
-        console.log(data);
+        console.log("Fetch Users List:", data.data);
     })
     .catch(function (err){
         console.error();
     })
 
+// As above but through Axios
+function withAxios(){
+    axios.get("https://reqres.in/api/users")
+    .then(response => console.log("Axios User List:", response.data.data))
+    .catch(err => console.error(err));
+}
+
+// Exercise 1.2  - Get User 2
 fetch("https://reqres.in/api/users/2")
     .then(function(response){
         return response.json();
     })
     .then(function (data){
-        console.log(data);
+        console.log("Fecth User 2:", data.data);
     })
     .catch(function (err){
         console.error();
     })
+
+// As above but through Axios
+function withAxiosUser2(){
+    axios.get("https://reqres.in/api/users/2")
+    .then(response => console.log("Axios User 2:", response.data.data))
+    .catch(err => console.error(err));
+}
+
+
+// Exercise 1.3 Create a User name of Morpheus and job of Leader
+
+
+// Axios
+const newUser = {
+    name: "Morpheus",
+    job: "Leader"
+}
+
+axios.post("https://reqres.in/api/users", newUser)
+.then(response => console.log("Create User:", response.data.data))
+.catch(err => console.error(err));
+
+console.log("New User", newUser);
+
+
+// Exercise 1.4 Post request for "Register - Successful"
+const regSuccess = {
+    email: "eve.holt@reqres.in",
+    password: "pistol"
+}
+
+axios.post("https://reqres.in/api/register", regSuccess)
+.then(response => console.log("Register Successful:", response.data.data))
+.catch(err => console.error(err));
+
+console.log("regSuccess", regSuccess);
+
+
+
+// Exercise 1.5 Post request for "Login - Successful"
+const loginSuccess = {
+    email: "eve.holt@reqres.in",
+    password: "cityslicka"
+}
+
+axios.post("https://reqres.in/api/login", loginSuccess)
+.then(response => console.log("Login Successful:", response.data.data))
+.catch(err => console.error(err));
+
+console.log("loginSuccess", loginSuccess);
