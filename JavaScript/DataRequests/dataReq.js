@@ -39,3 +39,4 @@ function appendData(data){
         dataList.appendChild(trainer);
     }
 }
+
