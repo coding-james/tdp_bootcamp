@@ -31,29 +31,42 @@ function appendData(data){
     let dataList = document.getElementById("myData");
     for(let i = 0; i<data.length; i++){
         
-        let trainer = document.createElement("div"); //create div
+        let divCard = document.createElement("div"); //create div
         
-        let id = document.createElement("card"); //create card with id
-        id.innerText = "ID: " + data[i].id;
-        trainer.appendChild(id);
+        let userCard = document.createElement("card"); //create card with id
+        userCard.className = "card";
+        divCard.appendChild(userCard);
 
-        let name = document.createElement("p"); //create p with first name
-        name.innerText = "Name: " + data[i].first_name;
-        trainer.appendChild(name);
-
-        let lastName = document.createElement("p"); //create p with last name
-        lastName.innerText = "Surname: " + data[i].last_name;
-        trainer.appendChild(lastName);
-        
-        let email = document.createElement("p"); //create p with email
-        email.innerText = "Email: " + data[i].email;
-        trainer.appendChild(email);
+        let userCardB = document.createElement("div"); //create card with id
+        userCardB.className = "card-body";
+        userCard.appendChild(userCardB);
 
         let image = document.createElement("img"); //create img with avatar
         image.src = data[i].avatar;
-        trainer.appendChild(image);
+        image.className = "rounded float-start";
+        image.alt = data[i].first_name;
+        userCardB.appendChild(image);
+        
+        let name = document.createElement("h5"); //create p with first name
+        name.innerText = "Name: " + data[i].first_name + " " + data[i].last_name;
+        name.className = "card-title";
+        userCardB.appendChild(name);
 
-        dataList.appendChild(trainer);
+        let id = document.createElement("p"); //create card with id
+        id.innerText = "ID: " + data[i].id;
+        id.className = "card-text";
+        userCardB.appendChild(id);      
+      
+        // let lastName = document.createElement("p"); //create p with last name
+        // lastName.innerText = "Surname: " + data[i].last_name;
+        // lastName.className = "card-text";
+        // userCardB.appendChild(lastName);
+        
+        let email = document.createElement("p"); //create p with email
+        email.innerText = "Email: " + data[i].email;
+        userCardB.appendChild(email);
+
+        dataList.appendChild(divCard);
    }
 }
 
@@ -74,7 +87,7 @@ fetch("https://reqres.in/api/users?page=2")
 // As above but through Axios
 function withAxios(){
     axios.get("https://reqres.in/api/users")
-    .then(response => console.log("Axios User List:", response.data.data))
+    .then(response => console.log("Axios User List:", response.data.data, "Status:", response.status))
     .catch(err => console.error(err));
 }
 
@@ -93,7 +106,7 @@ fetch("https://reqres.in/api/users/2")
 // As above but through Axios
 function withAxiosUser2(){
     axios.get("https://reqres.in/api/users/2")
-    .then(response => console.log("Axios User 2:", response.data.data))
+    .then(response => console.log("Axios User 2:", response.data.data, "Status:", response.status))
     .catch(err => console.error(err));
 }
 
@@ -108,10 +121,10 @@ const newUser = {
 }
 
 axios.post("https://reqres.in/api/users", newUser)
-.then(response => console.log("Create User:", response.data.data))
+.then(response => console.log("Create User:", response.data.data, "Status:", response.status))
 .catch(err => console.error(err));
 
-console.log("New User", newUser);
+// console.log("New User", newUser);
 
 
 // Exercise 1.4 Post request for "Register - Successful"
@@ -121,10 +134,10 @@ const regSuccess = {
 }
 
 axios.post("https://reqres.in/api/register", regSuccess)
-.then(response => console.log("Register Successful:", response.data.data))
+.then(response => console.log("Register Successful:", response.data.data, "Status:", response.status))
 .catch(err => console.error(err));
 
-console.log("regSuccess", regSuccess);
+// console.log("regSuccess", regSuccess);
 
 
 
@@ -135,7 +148,14 @@ const loginSuccess = {
 }
 
 axios.post("https://reqres.in/api/login", loginSuccess)
-.then(response => console.log("Login Successful:", response.data.data))
+.then(response => console.log("Login Successful:", response.data.data, "Status:", response.status))
 .catch(err => console.error(err));
 
-console.log("loginSuccess", loginSuccess);
+// console.log("loginSuccess", loginSuccess);
+
+
+// EXERCISE 2 - Create some HTML to run your requet
+
+//EventListening
+let bttnUserList = document.querySelector("#axUser2");
+bttnUserList.addEventListener("click", withAxios);
