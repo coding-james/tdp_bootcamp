@@ -1,0 +1,30 @@
+Mongo
+
+use document_practice
+
+db.people.insertOne({ "firstName": "James", "surname": "Bond", "age": 35, "height": 185, "hobbies": ["Cars", "Guns", "Gadgets"]})
+
+db.people.insertMany([
+{"firstName": "Austin", "surname": "Powers", "age": 42, "height": 175, "hobbies": ["hobby1", "hobby2", "hobby3"]},
+{"firstName": "Jason", "surname": "Bourne", "age": 41, "height": 183, "hobbies": ["Matt Damon", "Matt Damon", "Matt Damon"]},
+{"firstName": "Ethan", "surname": "Hunt", "age": 37, "height": 150, "hobbies": ["Running", "Stunts", "Top Gun"]},
+{"firstName": "Harry", "surname": "Hart", "age": 52, "height": 187, "hobbies": ["Oxfords", "Brogues", "Suits"]}
+])
+
+//Show all documents in collection
+db.people.find()
+
+// Replace Hobbies
+db.people.updateOne({"firstName": "Austin", "surname": "Powers"},{"$set" : {"hobbies": ["Swinging 60s", "Mojo", "Singing"]}}) 
+
+//Add to Hobbies
+db.people.updateOne({"firstName": "Austin", "surname": "Powers"},{"$push": {"hobbies": "Roulette"}})
+
+//Remove a Hobby
+db.people.updateOne({"firstName": "Harry", "surname": "Hart"},{"$pull": {"hobbies": "Brogues"}})
+
+//Find everyone over 50
+db.people.find({"age": {"$gt": 50}})
+
+//Find everyone over 40 but only show first name and last name
+db.people.find({"age": {"$lte": 40}},{"_id": false, "firstName": true, "surname":true})
