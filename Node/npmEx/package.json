@@ -1,0 +1,20 @@
+{
+  "name": "npmex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mycow": "cowsay -f ackbar \"It's a trap!\" ",
+    "cow2": "cowsay -f R2-D2 \"Ahwwwoooo\" ",
+    "cake": "cowsay -f cake \"The cake is a lie\" ",
+    "ren": "cowsay -f ren \"Stimpy you idiot\" ",
+    "oct": "cowsay -f octopus \"It's Octo-ber\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
