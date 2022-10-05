@@ -1,6 +1,7 @@
 console.log("Testing");
 
 const cow = require("./cow");
+
 console.log(cow.speak("moo"));
 console.log(cow.think("Hello Hooooman"));
 console.log(cow.zombie("Brainnssss"));
