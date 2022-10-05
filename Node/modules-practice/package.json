@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
+
+"scripts": {
+  "start": "modules-practice index.js"
+},
