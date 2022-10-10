@@ -2,5 +2,6 @@
 node_modules
 Express/node_modules
 Express/exercise/node_modules
-Express/errorEx/node_modules
+Express/errorEx/node_module
+Express/Routes/node_modules
 !.gitignore
