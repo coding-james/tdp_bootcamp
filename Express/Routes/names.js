@@ -26,10 +26,9 @@ router.get("/getAllAgents", (req, res) => agentModel.find({}).then(results => re
 // router.get("/User/:id", (req, res) => res.send(names[req.params.id]));
 
 router.get("/getAgent/:id", (req, res, next) => {
-    const {id} = req.params;
-    if (!agents[id]) return next("No agent there");
-    res.send(agents[id])
-    agentModel.findById(id).then(result => res.send(result)).catch(err => next(err));
+    console.log("ID:", req.params.id);
+    if (!req.params.id) return next({ status: 400, message: "Missing ID"})
+    agentModel.findById(req.params.id).then(result => res.send(result)).catch(err => next(err));
 });
 
 // Delete a User
@@ -73,13 +72,22 @@ router.post("/createAgent", (req, res, next) => {
 //     res.status(202).send(`${oldName} successfully replaced with ${newName[req.params.id]}`);
 // });
 
+// Using a query
 //  in postman example - localhost:4494/names/updateAgent/
 router.patch("/updateAgent/:id", (req, res) => {
     console.log("ID:", req.params.id);
+    console.log("Name:", req.query.name);
     if (!req.params.id) return next({ status: 400, message: "Missing ID"})
-    agentModel.findByIdAndUpdate(req.params.id, { $set: { name: req.params.name }}).then(result => res.status(201).send(result)).catch(err => next(err));
+    agentModel.findByIdAndUpdate(req.params.id, { $set: { name: req.query.name }}).then(result => res.status(201).send(result)).catch(err => next(err));
 });
 
+// Using the body
+router.patch("/updateAgentBody/:id", (req, res) => {
+    console.log("ID:", req.params.id);
+    console.log("Name:", req.body.name);
+    if (!req.params.id) return next({ status: 400, message: "Missing ID"})
+    agentModel.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name }}).then(result => res.status(201).send(result)).catch(err => next(err));
+});
 
 
 module.exports = router;

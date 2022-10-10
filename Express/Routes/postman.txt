@@ -25,7 +25,7 @@ List all agents
 localhost:4494/names/getAllAgents
 
 Get specified agent
-localhost:4494/names//getAgent/[mongodb id number]
+localhost:4494/names/getAgent/[mongodb id number]
 
-Add to / updateOne
-db.updateOne({"firstName": "Austin", "surname": "Powers"},{"$set" : {"hobbies": ["Swinging 60s", "Mojo", "Singing"]}}) 
+Update via Query
+localhost:4494/names/updateAgent/[mongodb id number]?name=M
