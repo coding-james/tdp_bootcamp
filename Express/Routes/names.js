@@ -1,5 +1,6 @@
 const router = require("express").Router();
 // Router is a  - light yellow words are functions
+const { duckModel } = require("./db");
 
 // List
 let names = ["James Bond", "Jason Bourne", "Austin Powers", "Ethan Hunt", "Dana Scully", "M"];
@@ -17,6 +18,9 @@ const logTime = (req, res, next) => {
 
 // Get All users
 router.get("/allUsers", logTime, (req, res) => res.send(names));
+
+// Mongoose Get All
+router.get("/getAllDucks", (req, res) => duckModel.find().then(results => res.send(results)).catch(err => next(err)));
 
 //Get a specific User by index using URL parameter
 router.get("/User/:id", (req, res) => res.send(names[req.params.id]));
