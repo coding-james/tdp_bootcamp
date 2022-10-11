@@ -1,13 +1,9 @@
 --ROUTES
-List all users
-localhost:4494/names/allFilms
-
-Delete a users
-localhost:4494/names/delete/20
-
+List all films
+localhost:4494/filmRoutes/getAllFilms
 
 --MONGOOSE
-Create Agent
+Create film
 localhost:4494/filmRoutes/createFilm
 
 body JSON:
@@ -17,11 +13,11 @@ body JSON:
 {"title": "The World's End", "year": 2013, "category": "Comedy" "actors": ["Simon Pegg","Nick Frost","Martin Freeman","Rosamund Pike"]}
 {"title": "The Shawshank Redemption", "year": 1994, "category": "Drama" "actors": ["Tim Robins","Morgan Freeman","Bob Gunton","William Sadler"]}
 
-Remove Agent
-localhost:4494/names/removeAgent/[mongodb id number]
+Remove film
+localhost:4494/filmRoutes/removeFilm/[mongodb id number]
 
-Get specified agent
-localhost:4494/names/getAgent/[mongodb id number]
+Get specified film
+localhost:4494/filmRoutes/getFilm/[mongodb id number]
 
 Update via Query
-localhost:4494/names/updateAgent/[mongodb id number]?name=M
+localhost:4494/filmRoutes/updateFilm/[mongodb id number]?name=M

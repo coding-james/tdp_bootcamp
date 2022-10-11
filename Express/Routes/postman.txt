@@ -1,6 +1,6 @@
 --ROUTES
 List all users
-localhost:4494/names/allUsers
+localhost:4494/names/getAllAgents
 
 Delete a users
 localhost:4494/names/delete/20
@@ -28,4 +28,4 @@ Get specified agent
 localhost:4494/names/getAgent/[mongodb id number]
 
 Update via Query
-localhost:4494/names/updateAgent/[mongodb id number]?name=M
+localhost:4494/names/updateAgent/[mongodb id number]
