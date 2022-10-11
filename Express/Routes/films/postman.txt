@@ -1,0 +1,23 @@
+--ROUTES
+List all films
+localhost:4494/filmRoutes/getAllFilms
+
+--MONGOOSE
+Create film
+localhost:4494/filmRoutes/createFilm
+
+body JSON:
+{"title": "x", "year": 19xx, "category": "x" "actors": ["x","x"]}
+{"title": "Shaun of the Dead", "year": 2004, "category": "Comedy" "actors": ["Simon Pegg","Nick Frost","Kate Ashfield","Lucy Davis"]}
+{"title": "Hot Fuzz", "year": 2007, "category": "Comedy" "actors": ["Simon Pegg","Nick Frost","Martin Freeman","Jim Broadbent"]}
+{"title": "The World's End", "year": 2013, "category": "Comedy" "actors": ["Simon Pegg","Nick Frost","Martin Freeman","Rosamund Pike"]}
+{"title": "The Shawshank Redemption", "year": 1994, "category": "Drama" "actors": ["Tim Robins","Morgan Freeman","Bob Gunton","William Sadler"]}
+
+Remove film
+localhost:4494/filmRoutes/removeFilm/[mongodb id number]
+
+Get specified film
+localhost:4494/filmRoutes/getFilm/[mongodb id number]
+
+Update via Query
+localhost:4494/filmRoutes/updateFilm/[mongodb id number]?name=M
