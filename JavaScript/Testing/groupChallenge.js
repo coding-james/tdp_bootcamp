@@ -16,18 +16,6 @@ const reverseFactorial = (startNum) => {
             return "NONE";
         }
     }
-
-    for (let divideBy = 2; divideBy <= startNum; divideBy++) {
-        // console.log(`${total} / ${divideBy} = `, total / divideBy);
-        total /= divideBy;
-
-        if (total === 1) {
-            // console.log(`${divideBy}! is ${startNum}`);
-            return divideBy + "!";
-        } else if (!Number.isInteger(total)) {
-            return "NONE";
-        }
-    }
 }
 
 console.log(reverseFactorial(120));
