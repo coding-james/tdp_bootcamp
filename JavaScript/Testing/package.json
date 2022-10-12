@@ -4,7 +4,7 @@
   "description": "",
   "main": "maths.js",
   "scripts": {
-    "test": "mocha doggo.test.js --exit"
+    "test": "mocha group.test.js doggo.test.js --exit"
   },
   "keywords": [],
   "author": "",
