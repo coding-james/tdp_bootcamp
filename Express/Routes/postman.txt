@@ -11,8 +11,8 @@ Create Agent
 localhost:4494/names/createAgent
 
 body JSON:
-{"name": "Austion Powers", "disposition": "Groovy", "agency": "M16" }
-{"name": "James Bond", "disposition": "Ego", "agency": "M16" }
+{"name": "Austion Powers", "disposition": "Groovy", "agency": "MI6" }
+{"name": "James Bond", "disposition": "Ego", "agency": "MI6" }
 {"name": "Jason Bourne", "disposition": "Forgetful", "agency": "CIA" }
 {"name": "Ethan Hunt", "disposition": "Adaptive", "agency": "IMF" }
 {"name": "Dana Scully", "disposition": "Resilient", "agency": "FBI" }

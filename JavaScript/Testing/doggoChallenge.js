@@ -17,10 +17,12 @@ const doggoResults = (place) => {
         } 
     }
     // console.log("Your place: ", place);
-    console.log(results);
+    // console.log(results);
+    return results;
 }
 
-doggoResults(1);
+module.exports = doggoResults;
+// doggoResults(1);
 
 
 
