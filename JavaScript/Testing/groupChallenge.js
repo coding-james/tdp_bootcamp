@@ -18,7 +18,8 @@ const reverseFactorial = (startNum) => {
     }
 }
 
-console.log(reverseFactorial(120));
+// console.log(reverseFactorial(120));
+module.exports = reverseFactorial;
 
 // WHILE LOOP
 // const rf2 = (total) => {
