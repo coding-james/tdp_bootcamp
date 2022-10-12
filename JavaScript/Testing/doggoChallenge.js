@@ -20,7 +20,8 @@ const doggoResults = (place) => {
     console.log(results);
 }
 
-doggoResults(1);
+module.exports = doggoResults;
+// doggoResults(1);
 
 
 
