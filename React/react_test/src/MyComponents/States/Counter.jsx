@@ -5,16 +5,15 @@ function Counter() {
     const [count, setCount] = useState();
 
     const handleChange = (event) => {
-        setCount(event.target.value);
-        // console.log(event);
+        // console.log("EVENT:", event);
+        const newCount = parseInt(event.target.value);
+        setCount(newCount)
     };
 
-    const history = [];
-
-    // const [histView, setHistView] = useState();
+    let history;
 
     function RecordHist() {
-        history.push(parseInt(count));
+        history = parseInt(count);
         console.log(history);
     };
 
@@ -47,12 +46,8 @@ function Counter() {
                     history = [];
                 }}>reset</button>
             </div>
-            {/* <div>
-                <input type="text" value={ history } />
-            </div> */}
         </>
     )
-
 }
 
 export default Counter;
