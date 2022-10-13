@@ -4,6 +4,7 @@ import AboutMe from "./MyComponents/SomeApp";
 import MyComponent from "./MyComponents/MyComp"
 import Header from "./MyComponents/Header"
 import PropComp from './MyComponents/Props/PropExample';
+import Counter from './MyComponents/States/Counter';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
         </a>
         <AboutMe/>
         <MyComponent/>
-        <PropComp></PropComp>
+        <PropComp/>
+        <Counter/>
       </header>
     </div> 
   );
