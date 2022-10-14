@@ -5,6 +5,10 @@ import MyComponent from "./MyComponents/MyComp"
 import Header from "./MyComponents/Header"
 import PropComp from './MyComponents/Props/PropExample';
 import CounterFix from './MyComponents/States/CounterFix';
+import Robots from './MyComponents/Props/RobotProp';
+import robot from './MyComponents/Data/robotData.json';
+import Content from './MyComponents/Content';
+
 
 
 function App() {
@@ -23,12 +27,22 @@ function App() {
         >
           Aperture Science Laboratories
         </a>
-        <AboutMe/>
-        <MyComponent/>
-        <PropComp/>
-        <CounterFix/>
+        {/* <AboutMe/> */}
+        {/* <MyComponent/> */}
+        {/* <PropComp/> */}
+        {/* <CounterFix/> */}
+
+        {
+          robot.map(robots => {
+            // console.log("Robot:", robots);
+            return <Robots key={robots.id + robots.name} name={robots.name} address={robots.address} state={robots.state} country={robots.country} />;
+          })
+        }
+
+        <Content/>
+
       </header>
-    </div> 
+    </div>
   );
 };
 
