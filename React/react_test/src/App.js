@@ -8,6 +8,9 @@ import CounterFix from './MyComponents/States/CounterFix';
 import Robots from './MyComponents/Props/RobotProp';
 import robot from './MyComponents/Data/robotData.json';
 import Content from './MyComponents/Content';
+import SubContent from './MyComponents/SubContent';
+import Login from './MyComponents/LoginControl';
+import LoginControl from './MyComponents/LoginControl';
 
 
 
@@ -39,8 +42,9 @@ function App() {
           })
         }
 
-        <Content/>
-
+        {/* <Content/> */}
+        {/* <SubContent/> */}
+        {/* <LoginControl/> */}
       </header>
     </div>
   );
