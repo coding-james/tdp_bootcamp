@@ -11,6 +11,7 @@ import Content from './MyComponents/Content';
 import SubContent from './MyComponents/SubContent';
 import Login from './MyComponents/LoginControl';
 import LoginControl from './MyComponents/LoginControl';
+import Game from './MyComponents/LiftingState/Game';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         {/* <Content/> */}
         {/* <SubContent/> */}
         {/* <LoginControl/> */}
+        <Game/>
       </header>
     </div>
   );
