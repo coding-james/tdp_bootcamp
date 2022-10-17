@@ -4,7 +4,7 @@ import axios from 'axios';
 // http://www.omdbapi.com/ key = 165c745e
 
 const MultiFilmReq = () => {
-    const [filmData, setFilmData] = useState([]);
+    const [results, setResults] = useState([]);
     const [filmTitle, setFilmTitle] = useState("");
 
     const updateTitle = (e) => {
@@ -16,7 +16,7 @@ const MultiFilmReq = () => {
         axios.get("http://www.omdbapi.com/?apikey=" + "165c745e" + "&s=" + filmTitle + "&type=movie" + "&page=1")
             .then(response => {
                 console.log(response.data);
-                setFilmData(response.data);
+                setResults(response.data);
             });
     };
 
@@ -28,14 +28,14 @@ const MultiFilmReq = () => {
                 <input type="text" onChange={(e) => updateTitle(e)} />
                 <button onClick={(e) => makeRequest(e)}>Search</button>
 
-                {/* {filmData.map((filmData) => (
+                {/* {results.map((result) => (
                     <div>
-                        <h4>{filmData.Title}</h4>
-                        <h4>{filmData.Year}</h4>
-                        <h4>{filmData.Rated}</h4>
-                        <h4>{filmData.Genre}</h4>
-                        <h4>{filmData.Plot}</h4>
-                        <img src={filmData.Poster} alt="The poster"></img>
+                        <h4>{result.Title}</h4>
+                        <h4>{result.Year}</h4>
+                        <h4>{result.Rated}</h4>
+                        <h4>{result.Genre}</h4>
+                        <h4>{result.Plot}</h4>
+                        <img src={result.Poster} alt="The poster"></img>
                     </div>
                 ))} */}
 
