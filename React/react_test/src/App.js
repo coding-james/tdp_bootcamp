@@ -12,6 +12,8 @@ import SubContent from './MyComponents/SubContent';
 import Login from './MyComponents/LoginControl';
 import LoginControl from './MyComponents/LoginControl';
 import Game from './MyComponents/LiftingState/Game';
+import EmployeeInfo from './MyComponents/EmployeeInfo';
+import FilmReq from './MyComponents/FilmRequest';
 
 
 
@@ -46,7 +48,9 @@ function App() {
         {/* <Content/> */}
         {/* <SubContent/> */}
         {/* <LoginControl/> */}
-        <Game/>
+        {/* <Game/> */}
+        {/* <EmployeeInfo/> */}
+        <FilmReq/>
       </header>
     </div>
   );
