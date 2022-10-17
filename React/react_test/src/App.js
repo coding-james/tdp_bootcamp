@@ -15,6 +15,7 @@ import Game from './MyComponents/LiftingState/Game';
 import EmployeeInfo from './MyComponents/EmployeeInfo';
 import FilmReq from './MyComponents/FilmRequest';
 import MultiFilmReq from './MyComponents/MultiFilmRequest';
+import OMDB from './MyComponents/TrainersSolutions/OMDB';
 
 
 
@@ -53,6 +54,7 @@ function App() {
         {/* <EmployeeInfo/> */}
         {/* <FilmReq/> */}
         <MultiFilmReq/>
+        {/* <OMDB/> */}
       </header>
     </div>
   );

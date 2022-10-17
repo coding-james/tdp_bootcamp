@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 // http://www.omdbapi.com/ key = 165c745e
@@ -6,6 +6,7 @@ import axios from 'axios';
 const FilmReq = () => {
     const [filmData, setFilmData] = useState("");
     const [filmTitle, setFilmTitle] = useState("");
+    const aKey = "";
 
     const updateTitle = (e) => {
         e.preventDefault();
@@ -13,7 +14,7 @@ const FilmReq = () => {
     }
 
     const makeRequest = (e) => {
-        axios.get("http://www.omdbapi.com/?apikey=" + "165c745e" + "&t=" + filmTitle)
+        axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&t=" + filmTitle)
             .then(response => {
                 console.log(response.data);
                 setFilmData(response.data);

@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import FilmResults from './FilmResults';
 
-// http://www.omdbapi.com/ key = 165c745e
+// http://www.omdbapi.com/
 
 const MultiFilmReq = () => {
     const [results, setResults] = useState([]);
     const [filmTitle, setFilmTitle] = useState("");
+    const aKey = "";
 
     const updateTitle = (e) => {
         e.preventDefault();
@@ -13,20 +15,31 @@ const MultiFilmReq = () => {
     }
 
     const makeRequest = (e) => {
-        axios.get("http://www.omdbapi.com/?apikey=" + "165c745e" + "&s=" + filmTitle + "&type=movie" + "&page=1")
+        axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&s=" + filmTitle + "&type=movie" + "&page=1")
             .then(response => {
-                console.log(response.data);
-                setResults(response.data);
+                console.log(response.data.Search);
+                setResults(response.data.Search);
             });
     };
 
     return (
         <>
             <div>
-                <h2>Show your film</h2>
+                <h2>Search Films</h2>
                 <p>Enter the name of the film you are searching for here</p>
                 <input type="text" onChange={(e) => updateTitle(e)} />
                 <button onClick={(e) => makeRequest(e)}>Search</button>
+
+                {
+                    results.map(result => (
+                        <FilmResults
+                            key={result.imdbID}
+                            poster={result.Poster}
+                            title={result.Title}
+                            year={result.Year}
+                        />
+                    ))
+                }
 
                 {/* {results.map((result) => (
                     <div>
