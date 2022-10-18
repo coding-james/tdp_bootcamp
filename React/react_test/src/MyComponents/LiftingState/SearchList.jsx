@@ -20,14 +20,14 @@ function SearchList() {
 
   const increaseQty = (index) => {
     const cloneItems = [...items];
-    cloneItems.splice(index, 1, { name: cloneItems[index].name, qty: (cloneItems[index].qty + 1) });
+    cloneItems.splice(index, 1, { name: cloneItems[index].name, qty: (cloneItems[index].qty + 1) }); //replace existing element in the array with qty + 1
     setItems(cloneItems);
   };
 
   const decreaseQty = (index) => {
     const cloneItems = [...items];
     if(cloneItems[index].qty > 1){
-      cloneItems.splice(index, 1, { name: cloneItems[index].name, qty: (cloneItems[index].qty - 1) });
+      cloneItems.splice(index, 1, { name: cloneItems[index].name, qty: (cloneItems[index].qty - 1) }); //replace existing element in the array with qty - 1
       setItems(cloneItems);
     } else {
       removeItem(); //if user decreases to zero, remove item
@@ -62,9 +62,10 @@ function SearchList() {
           .filter((item) => item.name.toLowerCase().startsWith(search.toLowerCase()))
           .map((item, i) => (
             <p>
-              {`${item.name} Qty: ${item.qty}`}
-              <button type="button" onClick={() => increaseQty(i)}>Qty +</button>
-              <button type="button" onClick={() => decreaseQty(i)}>Qty -</button>
+              {/* {`${item.name} Qty: ${item.qty} `} */}
+              {item.name} <small style={{color: "grey"}}>Qty: {item.qty} </small>
+              <button type="button" onClick={() => increaseQty(i)}>+1</button>
+              <button type="button" onClick={() => decreaseQty(i)}>-1</button>
               <button type="button" onClick={() => removeItem(i)}>X</button>
             </p>
           ))
