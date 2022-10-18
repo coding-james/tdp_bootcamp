@@ -16,6 +16,7 @@ import EmployeeInfo from './MyComponents/EmployeeInfo';
 import FilmReq from './MyComponents/FilmRequest';
 import MultiFilmReq from './MyComponents/MultiFilmRequest';
 import OMDB from './MyComponents/TrainersSolutions/OMDB';
+import SearchList from './MyComponents/LiftingState/SearchList';
 
 
 
@@ -53,8 +54,9 @@ function App() {
         {/* <Game/> */}
         {/* <EmployeeInfo/> */}
         {/* <FilmReq/> */}
-        <MultiFilmReq/>
+        {/* <MultiFilmReq/> */}
         {/* <OMDB/> */}
+        <SearchList/>
       </header>
     </div>
   );
