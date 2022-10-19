@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useState } from 'react';
-import { useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function FilmDetails() {
     const params = useParams();
@@ -10,20 +9,23 @@ function FilmDetails() {
     const [filmData, setFilmData] = useState("");
 
     useEffect(() => {
-        axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&i=" + params.imdbID)
-            .then(response => {
-                console.log(response.data);
-                setFilmData(response.data);
-            });
-    });
-
+        const GetFilm = () => {
+            axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&i=" + params.imdbID)
+                .then(response => {
+                    console.log(response.data);
+                    setFilmData(response.data);
+                });
+        }
+        GetFilm();
+    },[params]);
 
     return (
         <>
+            <p>Test</p>
             <h3>{filmData.Title} - ({filmData.Year})</h3>
-            <h4>Rating: {filmData.Rated} Genre: {filmData.Genre}</h4>
             <p>{filmData.Plot}</p>
-            <p>{filmData.Ratings}</p>
+            <p>Rating: {filmData.Rated}</p>
+            <p>Genre: {filmData.Genre}</p>
             <img src={filmData.Poster} alt="Film Poster"></img>
         </>
     )

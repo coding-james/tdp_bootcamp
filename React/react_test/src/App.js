@@ -23,7 +23,7 @@ import User from './MyComponents/Routes/Users';
 import Navigation from './MyComponents/Routes/Navigation';
 import NotFound from './MyComponents/Routes/NotFound';
 import ParamsExample from './MyComponents/Routes/ParamsEx';
-import FilmDetails from './MyComponents/Routes/FilmDetails';
+import FilmDetails from './MyComponents/Routes/FilmDetailsFix';
 
 
 
