@@ -7,7 +7,7 @@ import FilmResults from './FilmResults';
 const MultiFilmReq = () => {
     const [results, setResults] = useState([]);
     const [filmTitle, setFilmTitle] = useState("");
-    const aKey = "";
+    const aKey = "165c745e";
 
     const updateTitle = (e) => {
         e.preventDefault();
@@ -37,6 +37,7 @@ const MultiFilmReq = () => {
                             poster={result.Poster}
                             title={result.Title}
                             year={result.Year}
+                            imdbID = {result.imdbID}
                         />
                     ))
                 }
