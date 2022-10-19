@@ -23,6 +23,7 @@ import User from './MyComponents/Routes/Users';
 import Navigation from './MyComponents/Routes/Navigation';
 import NotFound from './MyComponents/Routes/NotFound';
 import ParamsExample from './MyComponents/Routes/ParamsEx';
+import FilmDetails from './MyComponents/Routes/FilmDetails';
 
 
 
@@ -50,7 +51,7 @@ function App() {
             {/* <Link to="/Users" className='App-link'>Users</Link> */}
             <Link to="/NotFound" className='App-link'>404</Link>
           </nav>
-            <Navigation/>
+          <Navigation />
         </header>
 
         <Routes>
@@ -68,9 +69,10 @@ function App() {
           <Route path="/MultiFilmReq" element={<MultiFilmReq />} />
           <Route path="/SearchList" element={<SearchList />} />
           <Route path="/Robots" element={<Robots />} />
-          <Route path="/NotFound" element={<NotFound/>} />
+          <Route path="/NotFound" element={<NotFound />} />
           {/* <Route path="/Users" element={<User/>} /> */}
           <Route path="/params/:colour" element={<ParamsExample />} />
+          <Route path="/film/:imdbID" element={<FilmDetails />} />
         </Routes>
       </Router>
 
