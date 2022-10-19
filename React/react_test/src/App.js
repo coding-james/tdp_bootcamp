@@ -17,15 +17,34 @@ import FilmReq from './MyComponents/FilmRequest';
 import MultiFilmReq from './MyComponents/MultiFilmRequest';
 import OMDB from './MyComponents/TrainersSolutions/OMDB';
 import SearchList from './MyComponents/LiftingState/SearchList';
+import { BrowserRouter as Router, Link, Route, Routes, } from 'react-router-dom';
 
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <header className="App-header">
-        {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aperture_Science.svg/240px-Aperture_Science.svg.png" className="App-logo" alt="logo" />
+      <Router>
+        <Header />
+        <header className="App-header"></header>
+        <nav>
+          {/* <Link to="/home">Home</Link> */}
+          <Link to="/content">Content</Link>
+          <Link to="/about">About Me</Link>
+          <Link to="/mycomp">My Component</Link>
+          <Link to="/PropComp">Prop Component</Link>
+        </nav>
+
+        <Routes>
+          {/* <Route path="/home" element={ } /> */}
+          <Route path="/content" element={<Content />} />
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/mycomp" element={<MyComponent />} />
+          <Route path="/PropComp" element={<PropComp />} />
+        </Routes>
+      </Router>
+
+      {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aperture_Science.svg/240px-Aperture_Science.svg.png" className="App-logo" alt="logo" />
         <p>Welcome to Aperture Science Laboratories</p>
 
         <a
@@ -36,29 +55,25 @@ function App() {
         >
           Aperture Science Laboratories
         </a> */}
-        {/* <AboutMe/> */}
-        {/* <MyComponent/> */}
-        {/* <PropComp/> */}
-        {/* <CounterFix/> */}
+      {/* <CounterFix/> */}
 
-        {/* {
+      {/* {
           robot.map(robots => {
             // console.log("Robot:", robots);
             return <Robots key={robots.id + robots.name} name={robots.name} address={robots.address} state={robots.state} country={robots.country} />;
           })
         } */}
 
-        {/* <Content/> */}
-        {/* <SubContent/> */}
-        {/* <LoginControl/> */}
-        {/* <Game/> */}
-        {/* <EmployeeInfo/> */}
-        {/* <FilmReq/> */}
-        {/* <MultiFilmReq/> */}
-        {/* <OMDB/> */}
-        <SearchList/>
-      </header>
-    </div>
+
+      {/* <SubContent/> */}
+      {/* <LoginControl/> */}
+      {/* <Game/> */}
+      {/* <EmployeeInfo/> */}
+      {/* <FilmReq/> */}
+      {/* <MultiFilmReq/> */}
+      {/* <OMDB/> */}
+      <SearchList />
+    </div >
   );
 };
 
