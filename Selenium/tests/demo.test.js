@@ -31,17 +31,17 @@ describe("selenium tests", function () {
     }
   })
 
-  it.skip("should find a surprise", async () => {
-    const driver = await new Builder().forBrowser("chrome").build();
-    try {
-      driver.get("https://christophperrins.github.io/TestingSite/");
-      const surprise = await driver.wait(until.elementLocated(By.css("#quote > h1")));
-      expect(await surprise.getText()).to.equal("Surprise!")
-    } finally{
-      driver.quit();
-    }
-    return;
-  });
+  // it.skip("should find a surprise", async () => {
+  //   const driver = await new Builder().forBrowser("chrome").build();
+  //   try {
+  //     driver.get("https://christophperrins.github.io/TestingSite/");
+  //     const surprise = await driver.wait(until.elementLocated(By.css("#quote > h1")));
+  //     expect(await surprise.getText()).to.equal("Surprise!")
+  //   } finally{
+  //     driver.quit();
+  //   }
+  //   return;
+  // });
   //terminating the browser after each test
   // afterEach(async () => {
   //   await driver.quit();
