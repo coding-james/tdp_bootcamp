@@ -5,4 +5,6 @@ Express/exercise/node_modules
 Express/errorEx/node_module
 Express/Routes/node_modules
 Express/Routes/films/node_modules
+Selenium/node_modules
+React/react_test/node_modules
 !.gitignore

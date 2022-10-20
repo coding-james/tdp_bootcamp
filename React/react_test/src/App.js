@@ -24,8 +24,7 @@ import Navigation from './MyComponents/Routes/Navigation';
 import NotFound from './MyComponents/Routes/NotFound';
 import ParamsExample from './MyComponents/Routes/ParamsEx';
 import FilmDetails from './MyComponents/Routes/FilmDetailsFix';
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
