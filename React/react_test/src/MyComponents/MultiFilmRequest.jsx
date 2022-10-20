@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import axios from 'axios';
 import FilmResults from './FilmResults';
+import CONSTS from './FilmControl.json'
 
 // http://www.omdbapi.com/
 
 const MultiFilmReq = () => {
     const [results, setResults] = useState([]);
-    const [filmTitle, setFilmTitle] = useState("");
-    const aKey = "165c745e";
+    const [filmTitle, setFilmTitle] = useState("");;
 
     const updateTitle = (e) => {
         e.preventDefault();
@@ -15,7 +15,7 @@ const MultiFilmReq = () => {
     }
 
     const makeRequest = (e) => {
-        axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&s=" + filmTitle + "&type=movie" + "&page=1")
+        axios.get("http://www.omdbapi.com/?apikey=" + CONSTS.API_KEY + "&s=" + filmTitle + "&type=movie" + "&page=1")
             .then(response => {
                 console.log(response.data.Search);
                 setResults(response.data.Search);

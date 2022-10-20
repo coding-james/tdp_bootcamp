@@ -25,8 +25,6 @@ import NotFound from './MyComponents/Routes/NotFound';
 import ParamsExample from './MyComponents/Routes/ParamsEx';
 import FilmDetails from './MyComponents/Routes/FilmDetailsFix';
 
-
-
 function App() {
   return (
     <div className="App">
