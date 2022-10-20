@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
+import CONSTS from './FilmControl.json'
 
 // http://www.omdbapi.com/ key = 165c745e
 
 const FilmReq = () => {
     const [filmData, setFilmData] = useState("");
     const [filmTitle, setFilmTitle] = useState("");
-    const aKey = "165c745e";
 
     const updateTitle = (e) => {
         e.preventDefault();
@@ -14,7 +14,7 @@ const FilmReq = () => {
     }
 
     const makeRequest = (e) => {
-        axios.get("http://www.omdbapi.com/?apikey=" + aKey + "&t=" + filmTitle)
+        axios.get("http://www.omdbapi.com/?apikey=" + CONSTS.API_KEY + "&t=" + filmTitle)
             .then(response => {
                 console.log(response.data);
                 setFilmData(response.data);
