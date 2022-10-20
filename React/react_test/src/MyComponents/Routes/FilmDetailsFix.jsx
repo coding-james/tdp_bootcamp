@@ -2,7 +2,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react';
 import CONSTS from '../FilmControl.json'
-import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
 function FilmDetails() {
     const params = useParams();
@@ -29,23 +32,25 @@ function FilmDetails() {
         //     <img src={filmData.Poster} alt="Film Poster"></img>
         // </>
 
-        <Card>
-            <Card.Body style={{ maxWidth: '50%'}}>
-                <Card.Img variant="bottom" src={filmData.Poster} alt="Film Poster" style={{ maxWidth: '20%'}}></Card.Img>
-                <Card.Title>{filmData.Title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{filmData.Year}</Card.Subtitle>
-                <br></br>
-                <Card.Text>
-                    {filmData.Plot}
+        <Container>
+            <Row><br></br></Row>
+            <Row>
+                <Col>
+                    <Image src={filmData.Poster} alt="Film Poster"></Image>
+                </Col>
+                <Col>
+                    <h3 class="text-start">{filmData.Title}</h3>
+                    <h5 class="text-start">({filmData.Year})</h5>
                     <br></br>
+                    <p class="text-start">{filmData.Plot}</p>
                     <br></br>
-                    Rating: {filmData.Rated}
+                    <p class="text-start">Rating: {filmData.Rated}</p>
                     <br></br>
-                    Genre: {filmData.Genre}
-                </Card.Text>
-            </Card.Body>
-        </Card>
-        )
+                    <p class="text-start">Genre: {filmData.Genre}</p>
+                </Col>
+            </Row>
+        </Container>
+    )
 }
 
 export default FilmDetails;
