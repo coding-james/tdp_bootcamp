@@ -94,15 +94,16 @@ describe("Exercise tests", function () {
       expect(await result.getAttribute("value")).to.equal("-11");
 
       // Check History
-      // const historyResult1 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(1)")));
-      // expect(await historyResult1.getText()).to.equal("-5");
-      // const historyResult2 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(2)")));
-      // expect(await historyResult2.getText()).to.equal("-10");
-      // const historyResult3 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(3)")));
-      // expect(await historyResult3.getText()).to.equal("-11");
-
-      const historyResult3 = document.querySelectorAll("div > div.container > div:nth-child(5) > p");;
-      expect(historyResult3).to.equal("-5,-10,-11");
+      const historyResult1 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(1)")));
+      expect(await historyResult1.getText()).to.equal("-5");
+      const historyResult2 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(2)")));
+      expect(await historyResult2.getText()).to.equal("-10");
+      const historyResult3 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(3)")));
+      expect(await historyResult3.getText()).to.equal("-11");
+      
+      // Not yet solved, how do do as an array instead
+      // const historyResult3 = document.querySelectorAll("div > div.container > div:nth-child(5) > p");;
+      // expect(historyResult3).to.equal("-5,-10,-11");
 
     } finally {
       await driver.quit();
