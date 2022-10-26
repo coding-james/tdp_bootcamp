@@ -101,10 +101,17 @@ describe("Exercise tests", function () {
       const historyResult3 = await driver.wait(until.elementLocated(By.css("#root > div > div.container > div:nth-child(5) > p:nth-child(3)")));
       expect(await historyResult3.getText()).to.equal("-11");
       
-      // Not yet solved, how do do as an array instead
-      // const historyResult3 = document.querySelectorAll("div > div.container > div:nth-child(5) > p");;
-      // expect(historyResult3).to.equal("-5,-10,-11");
+      //Check History Length
+      const historyLength = await driver.findElements(By.css("#root > div > div.container > div:nth-child(5) > p"));
+      
 
+      // how do do as an array instead - help from Jordan
+      const historyElement = await driver.findElements(By.css("#root > div > div.container > div:nth-child(5) > p")); //gets the p elements
+      expect(historyElement).to.have.lengthOf(3); //checks the length
+      const history = await historyElement.map(async ele => await ele.getText()); //gets the text from the p elements as an array
+      Promise.all(history).then(results => {
+        expect(results).to.equal(["-5, -10, -11"]);
+      })
     } finally {
       await driver.quit();
     }
