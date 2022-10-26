@@ -38,7 +38,7 @@ describe("automation tests", function () {
   //     await driver.quit();
   //   }
 
-    it("should add cat food to basket", async () => {
+    it.skip("should add cat food to basket", async () => {
       const driver = await new Builder().forBrowser("chrome").build();
       try {
         await driver.get("https://www.petsathome.com/");

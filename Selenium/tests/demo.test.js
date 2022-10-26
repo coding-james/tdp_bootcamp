@@ -16,7 +16,7 @@ describe("selenium tests", function () {
   // });
 
 
-  it("should find turtles", async () => {
+  it.skip("should find turtles", async () => {
     const driver = await new Builder().forBrowser("chrome").build();
     try {
       await driver.get("https://www.bbc.co.uk/search");
