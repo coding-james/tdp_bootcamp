@@ -1,0 +1,31 @@
+--ROUTES
+List all users
+localhost:4494/names/getAllAgents
+
+Delete a users
+localhost:4494/names/delete/20
+
+
+--MONGOOSE
+Create Agent
+localhost:4494/names/createAgent
+
+body JSON:
+{"name": "Austion Powers", "disposition": "Groovy", "agency": "MI6" }
+{"name": "James Bond", "disposition": "Ego", "agency": "MI6" }
+{"name": "Jason Bourne", "disposition": "Forgetful", "agency": "CIA" }
+{"name": "Ethan Hunt", "disposition": "Adaptive", "agency": "IMF" }
+{"name": "Dana Scully", "disposition": "Resilient", "agency": "FBI" }
+{"name": "M", "disposition": "Resourceful", "agency": "MI6" }
+
+Remove Agent
+localhost:4494/names/removeAgent/[mongodb id number]
+
+List all agents
+localhost:4494/names/getAllAgents
+
+Get specified agent
+localhost:4494/names/getAgent/[mongodb id number]
+
+Update via Query
+localhost:4494/names/updateAgent/[mongodb id number]
